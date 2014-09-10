@@ -1,6 +1,12 @@
 bash ajenti/run.sh
+bash codebox/run.sh
+bash dockerui/run.sh
 bash gateone/run.sh
-bash shipyard/run.sh
+bash gitlab/run.sh
+bash lamp/run.sh
+#bash nginx/run.sh
+bash node/run.sh
+bash owncloud/run.sh
+#bash shipyard/run.sh
 bash wordpress/run.sh
-
 

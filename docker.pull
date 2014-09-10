@@ -1,0 +1,62 @@
+git clone sauloaldocker/ajenti
+git clone sauloaldocker/codebox
+git clone sauloaldocker/dockerui
+git clone sauloaldocker/gateone
+git clone sauloaldocker/gitlab
+git clone sauloaldocker/lamp
+git clone sauloaldocker/nginx
+git clone sauloaldocker/nodejs
+git clone sauloaldocker/owncloud
+git clone sauloaldocker/shipyard
+git clone sauloaldocker/wordpress
+
+#sauloaldocker/lamp
+
+#sauloaldocker/allbio
+#sauloaldocker/flask
+#sauloaldocker/init
+#sauloaldocker/masurca
+#sauloaldocker/mongo
+#sauloaldocker/mongoapi
+#sauloaldocker/mongoapistats
+#sauloaldocker/shipyardauto
+#sauloaldocker/sqlitevcf
+#sauloaldocker/supervisor
+#sauloaldocker/ubuntu14.04
+
+
+
+#NAME                    DESCRIPTION   STARS     OFFICIAL   AUTOMATED
+#sauloal/ajenti                        0                    [OK]
+#sauloal/gateone                       0                    [OK]
+#sauloal/lamp                          0                    [OK]
+#sauloal/owncloud                      0                    [OK]
+#sauloal/shipyard                      0
+
+#sauloal/allbio                        0                    [OK]
+#sauloal/flask                         0                    [OK]
+#sauloal/kivy                          0
+#sauloal/masurca                       0                    [OK]
+#sauloal/mongo                         0                    [OK]
+#sauloal/mongoapi                      0                    [OK]
+#sauloal/mongoapistats                 0                    [OK]
+#sauloal/sqlitevcf                     0                    [OK]
+#sauloal/supervisor                    0                    [OK]
+#sauloal/ubuntu14.04                   0                    [OK]
+#sauloal/shipyardauto                  0                    [OK]
+
+
+#docker pull sauloal/ajenti
+#docker pull sauloal/gateone
+#docker pull sauloal/lamp
+#docker pull sauloal/owncloud
+#docker pull sauloal/shipyard
+
+#docker pull sauloal/codebox
+#docker pull sauloal/dockerui
+#docker pull sauloal/gitlab
+#docker pull sauloal/nginx
+#docker pull sauloal/node
+#docker pull sauloal/wordpress
+
+
