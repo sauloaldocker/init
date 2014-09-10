@@ -1,0 +1,6 @@
+bash ajenti/run.sh
+bash gateone/run.sh
+bash shipyard/run.sh
+bash wordpress/run.sh
+
+
