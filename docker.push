@@ -1,40 +1,18 @@
-ADD_NAME=gitlab
-ADDRESS=127.0.1.1:10022
-
 function submit {
     FOLDER=$1
     GROUP=$2
     REPO=$3
-    #git remote add $ADD_NAME ssh://git@$ADD_IP/wur/alescripts.git
     cd $FOLDER
-        set +xeu
+        set +e
         #ssh://git@127.0.0.1:10022/wur/alescripts.git
         git remote remove ${ADD_NAME}
         git remote add ${ADD_NAME} ssh://git@${ADDRESS}/${GROUP}/${REPO}.git
-        #set -xeu
+        set -e
         git push --mirror ${ADD_NAME}
-        set +xeu
+        #set +xeu
     cd -
 }
 
-set -xeu
-
-#git remote add gitlab ssh://git@127.0.1.1:10022/docker/ajenti.git
-
-#submit ALEscripts.git     alescripts
-submit ajenti            docker ajenti
-submit codebox           docker codebox
-submit dockerui          docker dockerui
-submit gateone           docker gateone
-submit gitlab            docker gitlab
-submit lamp              docker lamp
-submit nginx             docker nginx
-submit nginx-proxy       docker nginx-proxy
-submit node              docker node 
-submit owncloud          docker owncloud
-submit rainloop          docker rainloop 
-submit shipyard          docker shipyard
-submit wordpress         docker wordpress
-submit .                 docker init
-submit $HOME/data/docker docker content
+#gitlab  ssh://git@127.0.1.1:10022/docker/ajenti.git (push)
+#origin  git@github.com:sauloaldocker/ajenti.git (fetch)
 

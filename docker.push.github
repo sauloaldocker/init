@@ -1,0 +1,23 @@
+set -xeu
+
+ADD_NAME=github
+ADDRESS=github.com
+
+source docker.push
+
+submit ajenti            sauloaldocker ajenti
+submit codebox           sauloaldocker codebox
+submit dockerui          sauloaldocker dockerui
+submit gateone           sauloaldocker gateone
+submit gitlab            sauloaldocker gitlab
+submit lamp              sauloaldocker lamp
+submit nginx             sauloaldocker nginx
+#submit nginx-proxy       sauloaldocker nginx-proxy
+#submit node              sauloaldocker node 
+submit owncloud          sauloaldocker owncloud
+submit rainloop          sauloaldocker rainloop 
+submit shipyard          sauloaldocker shipyard
+submit wordpress         sauloaldocker wordpress
+submit .                 sauloaldocker init
+submit $HOME/data/docker sauloaldocker content
+
