@@ -4,7 +4,7 @@ git clone sauloaldocker/dockerui
 git clone sauloaldocker/gateone
 git clone sauloaldocker/gitlab
 git clone sauloaldocker/lamp
-git clone sauloaldocker/nginx
+#git clone sauloaldocker/nginx
 git clone sauloaldocker/nodejs
 git clone sauloaldocker/owncloud
 git clone sauloaldocker/shipyard
