@@ -1,0 +1,3 @@
+CFG=/home/saulo/data/docker/jekyll
+
+set -xeu

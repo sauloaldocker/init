@@ -1,0 +1,42 @@
+{
+  "name": "nw",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Node.js Hello world app on CentOS using docker",
+  "author": "Daniel Gasienica <daniel@gasienica.ch>",
+  "main": "index.html",
+  "single-instance": false,
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 1024,
+    "height": 768,
+    "position": "center"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "express": "*",
+    "jade": "*",
+    "method-override": "*",
+    "mocha": "*",
+    "sequelize": "*",
+    "sequelize-cli": "*",
+    "serve-favicon": "*",
+    "sql": "*",
+    "sqlite3": "*",
+    "node-pre-gyp": "*"
+  },
+  "bundledDependencies":["node-pre-gyp"],
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build"
+  },
+  "binary": {
+    "module_name": "nw",
+    "module_path": "./lib/binding/",
+    "host": "https://your_module.s3-us-west-1.amazonaws.com"
+  }
+}

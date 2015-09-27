@@ -1,0 +1,34 @@
+#[ "$(whoami)" != "root" ] && echo "needs to run as root" && exit 0
+
+USER=saulo
+OVPN_CONFIG=/home/saulo/data/docker/openvpn
+OVPN_DATA_VOL=/etc/openvpn
+OVPN_URL=data.aflitos.net
+OVPN_PORT=1194
+OVPN_DATA=ovpn-data
+OVPN_CLIENT_NAME=clt_saulo
+OVPN_VOL_MAP=${OVPN_CONFIG}:${OVPN_DATA_VOL}
+OVPN_HOST=data.aflitos.net
+
+#mkdir -p $OVPN_CONFIG
+
+#set -xeu
+
+#https://github.com/kylemanna/docker-openvpn
+
+#Create the $OVPN_DATA volume container
+#docker run --name $OVPN_DATA -v ${OVPN_DATA_VOL} busybox
+
+#Initalize the $OVPN_DATA container that will hold the configuration files and certificates
+#docker run --volumes-from $OVPN_DATA --rm     kylemanna/openvpn ovpn_genconfig -u udp://${OVPN_URL}:${OVPN_PORT}
+#docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn ovpn_initpki
+
+#Start OpenVPN server process
+#docker run --volumes-from $OVPN_DATA -d -p ${OVPN_PORT}:${OVPN_PORT}/udp --cap-add=NET_ADMIN kylemanna/openvpn
+
+#Generate a client certificate without a passphrase
+#docker run --volumes-from $OVPN_DATA --rm -it kylemanna/openvpn easyrsa build-client-full ${OVPN_CLIENT_NAME} nopass
+
+#Retrieve the client configuration with embedded certificates
+#docker run --volumes-from $OVPN_DATA --rm kylemanna/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
+
