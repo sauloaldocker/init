@@ -8,7 +8,7 @@ function submit {
         git remote remove ${ADD_NAME}
         git remote add ${ADD_NAME} ssh://git@${ADDRESS}/${GROUP}/${REPO}.git
         set -e
-        git push -f --mirror ${ADD_NAME}
+        git push --mirror ${ADD_NAME}
         #set +xeu
     cd -
 }

@@ -1,4 +1,4 @@
-ADD_NAME=gitlab
+ADD_NAME=aflitos
 ADDRESS=127.0.1.1:10022
 
 set -xeu
@@ -25,7 +25,7 @@ submit rainloop          docker rainloop
 submit shipyard          docker shipyard
 submit wetty             docker wetty
 submit wordpress         docker wordpress
-submit .                 docker init
+submit $PWD              docker init
 submit $HOME/data/docker docker content
 
 
