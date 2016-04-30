@@ -1,21 +1,33 @@
 ADD_NAME=gitlab
 ADDRESS=127.0.1.1:10022
 
+set -xeu
+
 source docker.push
 
 submit ajenti            docker ajenti
 submit codebox           docker codebox
+submit compose           docker compose
 submit dockerui          docker dockerui
 submit gateone           docker gateone
 submit gitlab            docker gitlab
+submit jekyll            docker jekyll
 submit lamp              docker lamp
 submit nginx             docker nginx
 submit nginx-proxy       docker nginx-proxy
 submit node              docker node 
+submit nw.js             docker nw.js
+submit onlyoffice        docker onlyoffice
+submit openvpn           docker openvpn
 submit owncloud          docker owncloud
+submit pifollowjs        docker pifollowjs
 submit rainloop          docker rainloop 
 submit shipyard          docker shipyard
+submit wetty             docker wetty
 submit wordpress         docker wordpress
 submit .                 docker init
 submit $HOME/data/docker docker content
+
+
+
 
