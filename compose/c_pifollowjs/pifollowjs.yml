@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  pifollowjs:
+    image: node
+    hostname: pifollowjs.${URL_SUFFIX}
+    command: bash /data/run.sh
+    restart: unless-stopped
+    volumes:
+      - ${PIFOLLOWJS_SRC}:/data
+      - ${PIFOLLOWJS_DATA}:/data/server/v2/data/
+      - ${SSLpriv}:/privkey.pem
+      - ${SSLcert}:/cert.pem
+#    ports:
+#      - ${PIFOLLOWJS_PORT_FROM}:${PIFOLLOWJS_PORT_TO}
+    environment:
+      - SSLkey=/privkey.pem
+      - SSLcert=/cert.pem
+

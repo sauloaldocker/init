@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  owncloud:
+    image: sauloal/owncloud
+    hostname: owncloud.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - ${OWNCLOUD_DATA}:/var/www/owncloud/data:rw
+      - ${OWNCLOUD_CONFIG}:/var/www/owncloud/config:rw
+#    ports:
+#      - ${OWNCLOUD_PORT_FROM}:${OWNCLOUD_PORT_TO}

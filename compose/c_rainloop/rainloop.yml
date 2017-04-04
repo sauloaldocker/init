@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  rainloop:
+    image: sauloal/rainloop
+    hostname: rainloop.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - ${RAINLOOP_DATA}:/webapps/rainloop/data
+      - ${RAINLOOP_DOM}:/webapps/rainloop/rainloop/v/${RAINLOOP_VERSION}/app/domains
+#    ports:
+#      - ${RAINLOOP_PORT_FROM}:${RAINLOOP_PORT_TO}

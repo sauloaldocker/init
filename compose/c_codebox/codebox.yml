@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  codebox:
+    image: jeromebaum/codebox
+    hostname: codebox.${URL_SUFFIX}
+    command: run /data --open
+    restart: unless-stopped
+    volumes:
+      - "${CODEBOX_DATA_HTML_JEKYLL}:/data/jekyll"
+      - "${CODEBOX_DATA_HTML_OPENVPN}:/data/openvpn"
+      - "${CODEBOX_DATA_HTML_PIFOLLOWJS}:/data/pifollowjs"
+      - "${CODEBOX_DATA_HTML_OWNCLOUD}:/data/owncloud"
+      - "${CODEBOX_DATA_HTML_NGINX}:/data/nginx"
+#      - "${CODEBOX_DATA_HTML_LAMP}:/data/lamp"
+#      - "${CODEBOX_DATA_HTML_NODE}:/data/node"
+#      - "${CODEBOX_DATA_HTML_NW}:/data/nw.js"
+#      - "${CODEBOX_DATA_HTML_TIME}:/data/timelapse"
+#    ports:
+#      - "${CODEBOX_PORT_FROM}:${CODEBOX_PORT_TO}"

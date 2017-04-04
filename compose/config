@@ -1,0 +1,181 @@
+set -xeu
+
+# GLOBAL PROJECT NAME (PREFIX)
+export COMPOSE_PROJECT_NAME=aflitosnet
+
+
+# DATA FOLDER
+export DATA=$HOME/data/docker/data
+#/home/saulo/data/docker/config/compose
+#/home/saulo/data/docker/data
+export URL_SUFFIX=data.aflitos.net
+
+
+# SSL KEYS
+export SSL_CERT_PWD_DIR=/home/saulo/data/docker/data/letsencrypt
+export SSL_CERT_PWD_PLACE=etc/live/aflitos.net
+export SSL_CERT_PWD=${SSL_CERT_PWD_DIR}/${SSL_CERT_PWD_PLACE}
+export SSLfull=${SSL_CERT_PWD}/fullchain.pem
+export SSLpriv=${SSL_CERT_PWD}/privkey.pem
+export SSLcert=${SSL_CERT_PWD}/cert.pem
+#export SSLkey_mp=/$(basename ${SSLkey}  )
+#export SSLcert_mp=/$(basename ${SSLcert})
+
+
+
+
+# AJENTI CONFIGURATION
+export AJENTI_DATA=${DATA}/ajenti
+export AJENTI_PORT_FROM=127.0.1.1:8001
+export AJENTI_PORT_TO=8000
+
+
+# CODEBOX
+export CODEBOX_PORT_FROM=127.0.1.1:8003
+export CODEBOX_PORT_TO=8000
+
+
+# DOCKER UI
+export DOCKERUI_PORT_FROM=127.0.1.1:9000
+export DOCKERUI_PORT_TO=9000
+export DOCKERUI_VERSION=0.10.1
+
+
+# GITLAB
+export GITLAB_BASE=${DATA}/gitlab
+export GITLAB_DATA=${GITLAB_BASE}/data
+export GITLAB_SQL=${GITLAB_BASE}/mysql
+export GITLAB_VERSION=9.0.0
+export GITLAB_PORT=10080
+export GITLAB_SSH_PORT=10022
+export GITLAB_HTTPS=false
+export GITLAB_PROJECTS_VISIBILITY=public
+export GITLAB_BACKUPS=daily
+export GITLAB_BACKUP_EXPIRY=604800
+export GITLAB_PORT_FROM_1=0.0.0.0:${GITLAB_SSH_PORT}
+export GITLAB_PORT_TO_1=22
+export GITLAB_PORT_FROM_2=127.0.1.1:${GITLAB_PORT}
+export GITLAB_PORT_TO_2=80
+export GITLAB_PORT_FROM_3=127.0.1.1:10443
+export GITLAB_PORT_TO_3=443
+export GITLAB_SECRETS_DB=0edbe09e-1f22-4cd5-8d76-15f8f092aebe
+export GITLAB_SECRETS_SECRET=1UB7SzMewERpJZUR4qOdEmUldQU220dKMzmLYWcVzIq3TKxu5+4cTDTrhNwD3xcb
+export GITLAB_SECRETS_OTP=9fuVRVz0u27ksndRpH2MzHRFMX833dQNtqzr7xvXVfX9/V7h2RG6YebnDh6KU/xJ
+export GITLAB_POSTGRES_VERSION=9.6-2
+export GITLAB_POSTGRES_USER=gitlab
+export GITLAB_POSTGRES_PASS=25bd4a2b-020d-4297-a6e5-ece81cca0af8
+export GITLAB_POSTGRES_NAME=gitlabhq_production
+export GITLAB_POSTGRES_DATA=${GITLAB_BASE}/postgres
+export GITLAB_REDIS_DATA=${GITLAB_BASE}/redis
+
+
+# JEKYLL
+export JEKYLL_DATA=${DATA}/jekyll
+export JEKYLL_PORT_FROM=127.0.1.1:4000
+export JEKYLL_PORT_TO=4000
+
+
+# ONLYOFFICE
+#export ONLYOFFICE_NAME_SERVER=office.aflitos.net
+export ONLYOFFICE_DATA=${DATA}/onlyoffice
+export ONLYOFFICE_MAIL=${ONLYOFFICE_DATA}/mail
+export ONLYOFFICE_COMM=${ONLYOFFICE_DATA}/community
+export ONLYOFFICE_DOCS=${ONLYOFFICE_DATA}/docs/data
+export ONLYOFFICE_LOGS=${ONLYOFFICE_DATA}/docs/logs
+export ONLYOFFICE_OUT_IP=127.0.1.1
+export ONLYOFFICE_PORT_OUT=$ONLYOFFICE_OUT_IP:8888
+export ONLYOFFICE_PORT_OUT_TSL=$ONLYOFFICE_OUT_IP:4443
+export ONLYOFFICE_PORT_OUT_SEC=$ONLYOFFICE_OUT_IP:5222
+export ONLYOFFICE_PORT_MAIL=$ONLYOFFICE_OUT_IP:25
+export ONLYOFFICE_PORT_MAIL_TSL=$ONLYOFFICE_OUT_IP:143
+export ONLYOFFICE_PORT_MAIL_SEC=$ONLYOFFICE_OUT_IP:587
+
+
+# OPEN VPN
+export OVPN_USER=saulo
+export OVPN_CONFIG=${DATA}/openvpn
+export OVPN_DATA_VOL=/etc/openvpn
+export OVPN_PORT=1194
+export OVPN_VOL_MAP=${OVPN_CONFIG}:${OVPN_DATA_VOL}
+#export OVPN_URL=data.aflitos.net
+#export OVPN_DATA=ovpn-data
+#export OVPN_CLIENT_NAME=clt_saulo
+#export OVPN_HOST=data.aflitos.net
+
+
+# OWNCLOUD
+export OWNCLOUD_BASE=${DATA}/owncloud
+export OWNCLOUD_DATA=${OWNCLOUD_BASE}/data
+export OWNCLOUD_CONFIG=${OWNCLOUD_BASE}/config
+export OWNCLOUD_PORT_FROM=127.0.1.1:7000
+export OWNCLOUD_PORT_TO=80
+
+
+# PIFOLLOW JS
+#export PIFOLLOWJS_DATA=${HOME}/bigdata/saulo/Dropbox/pifollow/js
+#export PIFOLLOWJS_PORT_FROM=127.0.1.1:11223
+#export PIFOLLOWJS_DATA=${DATA}/pifollowjs/pifollowjs/server/v2/data/
+export PIFOLLOWJS_SRC=${DATA}/pifollowjs/pifollowjs
+export PIFOLLOWJS_DATA=${HOME}/bigdata/saulo/Dropbox/pifollow/
+export PIFOLLOWJS_PORT_FROM=0.0.0.0:11223
+export PIFOLLOWJS_PORT_TO=3000
+
+
+# RAINLOOP
+export RAINLOOP_BASE=${DATA}/rainloop
+export RAINLOOP_DATA=${RAINLOOP_BASE}/data
+export RAINLOOP_DOM=${RAINLOOP_BASE}/domains
+export RAINLOOP_PORT_FROM=127.0.1.1:9900
+export RAINLOOP_PORT_TO=80
+export RAINLOOP_VERSION=1.6.7.125
+
+
+# WORDPRESS
+export WORDPRESS_PASSWD=mylongandsecretpassword
+export WORDPRESS_BASE=${DATA}/wordpress
+export WORDPRESS_SQL=${WORDPRESS_BASE}/sql
+export WORDPRESS_APP=${WORDPRESS_BASE}/app
+export WORDPRESS_PORT_FROM=127.0.1.1:8088
+export WORDPRESS_PORT_TO=80
+
+
+# NGINX
+export NGINX_DATA=${DATA}/nginx
+export NGINX_DRC=/etc/nginx/
+
+export NGINX_CERT_PWD_DIR=${SSL_CERT_PWD_DIR}
+export NGINX_CERT_PWD_PLACE=${SSL_CERT_PWD_PLACE}
+export NGINX_CERT_PWD=${SSL_CERT_PWD}
+export NGINX_CERT_CRT=${SSLfull}
+export NGINX_CERT_KEY=${SSLpriv}
+export NGINX_CONF=${NGINX_DATA}/nginx.conf
+export NGINX_HTML=${NGINX_DATA}/data/
+export NGINX_CONFD=${NGINX_DATA}/conf.d/
+export NGINX_LOGS=${NGINX_DATA}/logs/
+export NGINX_DIR_USERS=${NGINX_DATA}/users/
+export NGINX_PORT_HTTP=80
+export NGINX_PORT_HTTPS=443
+#export NGINX_CERTS=${NGINX_CERT_PWD}:ro
+
+
+#LETSENCRYPT
+export LETS_ENCRYPT_EMAIL=sauloal@gmail.com
+export LETS_ENCRYPT_SERVER_NAME=${COMPOSE_PROJECT_NAME}_nginx_1
+export LETS_ENCRYPT_DOMAINS=$(cat ${NGINX_CONFD}/pre/domainnames.lst | sed 's/ /\\ /g')
+export LETS_ENCRYPT_DATA=${DATA}
+export LETS_ENCRYPT_ROOT=${DATA}/letsencrypt
+export LETS_ENCRYPT_ETC=${LETS_ENCRYPT_ROOT}/certs/etc
+export LETS_ENCRYPT_LIB=${LETS_ENCRYPT_ROOT}/certs/lib
+export LETS_ENCRYPT_CERT_NAME=data.aflitos.net
+export LETS_ENCRYPT_KEY_SIZE=4096
+
+
+# CODEBOX
+export CODEBOX_DATA_HTML_JEKYLL=${JEKYLL_DATA}
+export CODEBOX_DATA_HTML_OPENVPN=${OVPN_CONFIG}
+export CODEBOX_DATA_HTML_PIFOLLOWJS=${PIFOLLOWJS_DATA}
+export CODEBOX_DATA_HTML_OWNCLOUD=${OWNCLOUD_CONFIG}
+export CODEBOX_DATA_HTML_NGINX=${NGINX_DATA}
+#export CODEBOX_DATA_HTML_LAMP=${DATA}/lamp/html
+#export CODEBOX_DATA_HTML_NODE=${DATA}/node
+#export CODEBOX_DATA_HTML_NW=${DATA}/nw.js

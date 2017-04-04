@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  onlyoffice-mail-server:
+    image: onlyoffice/mailserver
+    privileged: true
+    #hostname: mail.${ONLYOFFICE_NAME_SERVER}
+    hostname: mail.office.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - ${ONLYOFFICE_MAIL}/server:/etc/pki/tls/mailserver
+      - ${ONLYOFFICE_MAIL}/vmail:/var/vmail
+      - ${ONLYOFFICE_MAIL}/log:/var/log
+      - ${ONLYOFFICE_MAIL}/httpd:/etc/httpd/logs/
+      - ${ONLYOFFICE_MAIL}/mysql:/var/lib/mysql
+    ports:
+      - ${ONLYOFFICE_PORT_MAIL}:25
+      - ${ONLYOFFICE_PORT_MAIL_TSL}:143
+      - ${ONLYOFFICE_PORT_MAIL_SEC}:587
+    dns:
+      - 208.67.220.220
+      - 8.8.4.4
+      - 208.67.222.222
+      - 8.8.8.8

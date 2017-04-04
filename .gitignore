@@ -1,5 +1,5 @@
-*/.git
-compose/
-pifollowjs/pifollowjs
-pifollowjs/run2.sh
-
+#*/.git
+#compose/
+#pifollowjs/pifollowjs
+#pifollowjs/run2.sh
+*.swp

@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  ajenti:
+    image: crosbymichael/ajenti
+    hostname: ajenti.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - "${AJENTI_DATA}:/etc/ajenti"
+#    ports:
+#      - "${AJENTI_PORT_FROM}:${AJENTI_PORT_TO}"

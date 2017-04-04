@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  openvpn:
+    image: kylemanna/openvpn
+    hostname: openvpn.${URL_SUFFIX}
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${OVPN_CONFIG}:${OVPN_DATA_VOL}
+    ports:
+      - ${OVPN_PORT}:${OVPN_PORT}/udp

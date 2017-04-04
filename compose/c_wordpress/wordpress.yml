@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  wordpress:
+    image: tutum/wordpress
+    hostname: wordpress.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - ${WORDPRESS_SQL}:/var/lib/mysql
+      - ${WORDPRESS_APP}:/app
+#    ports:
+#      - ${WORDPRESS_PORT_FROM}:${WORDPRESS_PORT_TO}
+    environment:
+      - MYSQL_PASS=${WORDPRESS_PASSWD}

@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  jekyll:
+    image: grahamc/jekyll
+    hostname: jekyll.${URL_SUFFIX}
+    command: serve -H 0.0.0.0
+    restart: unless-stopped
+    volumes:
+      - "${JEKYLL_DATA}:/src"
+#    ports:
+#      - ${JEKYLL_PORT_FROM}:${JEKYLL_PORT_TO}

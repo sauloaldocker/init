@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx
+    hostname: www.${URL_SUFFIX}
+#    hostname: www.aflitos.net
+#    net: "host"
+    restart: unless-stopped
+    volumes:
+      - ${NGINX_CONF}:${NGINX_DRC}/nginx.conf:ro
+      - ${NGINX_HTML}:${NGINX_DRC}/html/:ro
+      - ${NGINX_CONFD}:${NGINX_DRC}/conf.d/:ro
+      - ${NGINX_DIR_USERS}:${NGINX_DRC}/users/:ro
+      - ${NGINX_CERT_PWD_DIR}:${NGINX_DRC}/certs/:ro
+      - ${NGINX_LOGS}:${NGINX_DRC}/logs/:rw
+      #- ${NGINX_CERT_CRT}:${NGINX_DRC}/cert.crt:ro
+      #- ${NGINX_CERT_KEY}:${NGINX_DRC}/cert.key:ro
+      #- ${NGINX_ERROR}:${NGINX_DRC}/logs/error.log:rw
+      #- ${NGINX_ACCESS}:${NGINX_DRC}/logs/access.log:rw
+    ports:
+    - "${NGINX_PORT_HTTP}:80"
+    - "${NGINX_PORT_HTTPS}:443"
+

@@ -26,7 +26,8 @@ submit shipyard          docker shipyard
 submit wetty             docker wetty
 submit wordpress         docker wordpress
 submit $PWD              docker init
-submit $HOME/data/docker docker content
+submit $HOME/data/docker/data   docker content
+submit $HOME/data/config saulo  config
 
 
 

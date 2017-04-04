@@ -1,1 +1,1 @@
-../../../docker/nw.js/
+../../data/nw.js/

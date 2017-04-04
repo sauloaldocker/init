@@ -1,0 +1,31 @@
+version: '2'
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
+
+services:
+#  onlyoffice:
+#    extends:
+#      file: onlyoffice.yml
+#      service: onlyoffice
+
+#  onlyoffice-document-server:
+#    extends:
+#      file: onlyoffice-document-server.yml
+#      service: onlyoffice-document-server
+
+#  onlyoffice-mail-server:
+#    extends:
+#      file: onlyoffice-mail-server.yml
+#      service: onlyoffice-mail-server
+
+#  onlyoffice-community-server:
+#    extends:
+#      file: onlyoffice-community-server.yml
+#      service: onlyoffice-community-server
+#    links:
+#      - onlyoffice-document-server:document_server
+#      - onlyoffice-mail-server:mail_server

@@ -1,0 +1,129 @@
+version: '2'
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
+
+services:
+  ajenti:
+    extends:
+      file: c_ajenti/ajenti.yml
+      service: ajenti
+
+  codebox:
+    extends:
+      file: c_codebox/codebox.yml
+      service: codebox
+
+  dockerui:
+    extends:
+      file: c_dockerui/dockerui.yml
+      service: dockerui
+
+  gitlab-redis:
+    extends:
+      file: c_gitlab/gitlab.yml
+      service: gitlab-redis
+
+  gitlab-postgresql:
+    extends:
+      file: c_gitlab/gitlab.yml
+      service: gitlab-postgresql
+
+  gitlab:
+    extends:
+      file: c_gitlab/gitlab.yml
+      service: gitlab
+    links:
+      - gitlab-redis:redis
+      - gitlab-postgresql:postgresql
+
+  jekyll:
+    extends:
+      file: c_jekyll/jekyll.yml
+      service: jekyll
+
+#  onlyoffice:
+#    extends:
+#      file: c_onlyoffice/onlyoffice.yml
+#      service: onlyoffice
+
+#  onlyoffice-document-server:
+#    extends:
+#      file: c_onlyoffice/onlyoffice-document-server.yml
+#      service: onlyoffice-document-server
+
+#  onlyoffice-mail-server:
+#    extends:
+#      file: c_onlyoffice/onlyoffice-mail-server.yml
+#      service: onlyoffice-mail-server
+
+#  onlyoffice-community-server:
+#    extends:
+#      file: c_onlyoffice/onlyoffice-community-server.yml
+#      service: onlyoffice-community-server
+#    links:
+#      - onlyoffice-document-server:document_server
+#      - onlyoffice-mail-server:mail_server
+
+  openvpn:
+    extends:
+      file: c_openvpn/openvpn.yml
+      service: openvpn
+
+  owncloud:
+    extends:
+      file: c_owncloud/owncloud.yml
+      service: owncloud
+
+  pifollowjs:
+    extends:
+      file: c_pifollowjs/pifollowjs.yml
+      service: pifollowjs
+
+  rainloop:
+    extends:
+      file: c_rainloop/rainloop.yml
+      service: rainloop
+
+  wordpress:
+    extends:
+      file: c_wordpress/wordpress.yml
+      service: wordpress
+
+  nginx:
+    extends:
+      file: c_nginx/nginx.yml
+      service: nginx
+    depends_on:
+    - codebox
+    - ajenti
+    - dockerui
+    - gitlab
+    - jekyll
+    - rainloop
+    - pifollowjs
+    - owncloud
+    - wordpress
+    #- onlyoffice
+    #- onlyoffice-community-server
+    links:
+    - codebox
+    - ajenti
+    - dockerui
+    - gitlab
+    - jekyll
+    - rainloop
+    - pifollowjs
+    - owncloud
+    - wordpress
+    #- onlyoffice
+    #- onlyoffice-community-server
+    networks:
+    - default
+    - back-tier
+    - front-tier
+
+

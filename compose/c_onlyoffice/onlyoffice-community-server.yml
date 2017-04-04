@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  onlyoffice-community-server:
+    image: onlyoffice/communityserver
+    #hostname: ${ONLYOFFICE_NAME_SERVER}
+    hostname: office.${URL_SUFFIX}
+    restart: unless-stopped
+    volumes:
+      - ${ONLYOFFICE_COMM}/data:/var/www/onlyoffice/Data
+      - ${ONLYOFFICE_COMM}/log:/var/log/onlyoffice
+      - ${ONLYOFFICE_COMM}/mysql:/var/lib/mysql
+    ports:
+      - ${ONLYOFFICE_PORT_OUT}:80
+      - ${ONLYOFFICE_PORT_OUT_TSL}:443
+      - ${ONLYOFFICE_PORT_OUT_SEC}:5222
+    links:
+      - onlyoffice-document-server:document_server
+      - onlyoffice-mail-server:mail_server
+    dns:
+      - 208.67.220.220
+      - 8.8.4.4
+      - 208.67.222.222
+      - 8.8.8.8
